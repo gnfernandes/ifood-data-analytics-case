@@ -1,0 +1,10 @@
+*.txt
+.ipynb_checkpoints/
+__pycache__/
+*.log
+*.csv
+*.json
+*.gz
+/upload/
+
+

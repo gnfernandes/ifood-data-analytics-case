@@ -67,13 +67,3 @@ Para uma visão detalhada das análises, conclusões e recomendações, consulte
 - `reports/ifood_data_analytics_report.pdf`
 
 Este relatório é destinado a líderes de negócio e apresenta os insights de forma clara e concisa, sem a necessidade de conhecimento técnico aprofundado.
-
-## Autor
-
-Manus AI
-
-## Licença
-
-Este projeto está licenciado sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes. (Nota: O arquivo LICENSE não está incluído neste repositório, mas pode ser adicionado se necessário.)
-
-

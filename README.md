@@ -1,69 +1,101 @@
-# Case Técnico de Data Analytics - iFood
 
-Este repositório contém a solução desenvolvida para o Case Técnico de Data Analytics do iFood, focado na análise de uma estratégia de cupons para retenção de usuários e na criação de segmentações de usuários.
+# 📊 Case Técnico de Data Analytics – iFood
 
-## Estrutura do Repositório
+Este repositório apresenta a solução desenvolvida para o **Case Técnico de Data Analytics do iFood**, com foco na **análise de uma campanha de cupons promocionais** e na **segmentação de clientes via metodologia RFM**. O projeto visa responder às questões de negócio propostas, com embasamento estatístico, modelagem analítica e recomendações estratégicas.
 
-- `notebooks/`: Contém os notebooks Jupyter com o processamento de dados (ETL) e as análises exploratórias e de segmentação.
-- `reports/`: Contém o relatório final em PDF com as conclusões e sugestões para as lideranças de negócio.
-- `README.md`: Este arquivo, com a descrição do projeto e instruções.
+## 🗂️ Estrutura do Repositório
 
-## Como Executar o Projeto
-
-Para replicar a análise e os resultados deste projeto, siga os passos abaixo:
-
-### 1. Pré-requisitos
-
-Certifique-se de ter as seguintes ferramentas instaladas:
-
-- Python 3.x
-- Jupyter Notebook ou JupyterLab
-- Bibliotecas Python: `pandas`, `numpy`, `matplotlib`, `seaborn`, `scikit-learn` (e outras que possam ser necessárias para a análise de dados).
-
-Você pode instalar as bibliotecas necessárias usando `pip`:
-
-```bash
-pip install pandas numpy matplotlib seaborn scikit-learn
+```
+.
+├── notebooks/
+│   ├── etl_process.ipynb                  # ETL dos dados originais para o BigQuery
+│   ├── exploratory_data_analysis.ipynb    # Análise exploratória, segmentações e métricas
+│   └── ifood_abtest_segmentation_results.ipynb  # Resultados do Teste A/B e análise segmentada
+├── reports/
+│   └── relatorio_executivo.pdf           # Relatório final com conclusões de negócio
+├── data/                                  # (opcional) Arquivos de dados baixados localmente
+└── README.md                              # Este arquivo
 ```
 
-### 2. Configuração do Ambiente
+## 🚀 Objetivos do Projeto
 
-1. Clone este repositório para o seu ambiente local:
+- Avaliar o impacto de uma campanha de cupons utilizando Teste A/B.
+- Medir retorno financeiro (ROI), retenção e ticket médio.
+- Propor estratégias segmentadas de cupons com base em perfis de clientes.
+- Recomendar melhorias baseadas em análises preditivas e RFM.
 
-   ```bash
-   git clone <URL_DO_SEU_REPOSITORIO>
-   cd ifood_case_study
-   ```
+## 🛠️ Tecnologias Utilizadas
 
-2. Os dados utilizados neste case são fornecidos pelo iFood e podem ser acessados através dos links abaixo:
+- **Python 3.10+**
+- **Google BigQuery** (armazenamento e consultas SQL)
+- **Jupyter Notebook** (ambiente analítico)
+- **Pandas, Numpy, Seaborn, Scikit-learn, Scipy** (bibliotecas de análise)
+- **Google Colab** (execução remota e gratuita)
 
-   - Pedidos (order.json): `https://data-architect-test-source.s3-sa-east-1.amazonaws.com/order.json.gz`
-   - Usuários (consumers.csv): `https://data-architect-test-source.s3-sa-east-1.amazonaws.com/consumer.csv.gz`
-   - Merchants (restaurant.csv): `https://data-architect-test-source.s3-sa-east-1.amazonaws.com/restaurant.csv.gz`
-   - Marcação de usuários que participaram do teste A/B (ab_test_ref.csv): `https://data-architect-test-source.s3-sa-east-1.amazonaws.com/ab_test_ref.tar.gz`
+## ⚠️ Requisitos para Execução
 
-   Recomenda-se baixar esses arquivos e colocá-los em um diretório `data/` na raiz do projeto, ou ajustar os caminhos nos notebooks para onde você os salvou.
+Antes de executar os notebooks, você precisará:
 
-### 3. Executando os Notebooks
+1. Ter uma conta no **Google Cloud Platform (GCP)** com o BigQuery ativado.
+2. Criar um **dataset** no BigQuery com permissões de leitura/escrita.
+3. Substituir o ID do projeto pelo seu próprio nos notebooks:
 
-Os notebooks devem ser executados na seguinte ordem para garantir a correta sequência de processamento e análise:
-
-1. `notebooks/etl_process.ipynb`: Realiza o processo de ETL (Extração, Transformação e Carga) dos dados.
-2. `notebooks/exploratory_data_analysis.ipynb`: Contém a análise exploratória dos dados e a definição de indicadores.
-3. `notebooks/ifood_abtest_segmentation_results.ipynb`: Aborda a análise de segmentação e os resultados do teste A/B com base nos segmentos definidos.
-
-Para abrir e executar os notebooks:
-
-```bash
-jupyter notebook
+```python
+project_id = "seu-id-do-projeto"  # Substitua aqui
 ```
 
-Navegue até o diretório `notebooks/` e abra cada arquivo `.ipynb` na ordem especificada.
+## 📥 Download dos Dados
 
-## Análise e Conclusões
+Os dados utilizados neste case estão disponíveis publicamente pelo iFood:
 
-Para uma visão detalhada das análises, conclusões e recomendações, consulte o relatório final:
+| Arquivo              | Link                                                                 |
+|----------------------|----------------------------------------------------------------------|
+| `order.json.gz`      | https://data-architect-test-source.s3-sa-east-1.amazonaws.com/order.json.gz     |
+| `consumer.csv.gz`    | https://data-architect-test-source.s3-sa-east-1.amazonaws.com/consumer.csv.gz   |
+| `restaurant.csv.gz`  | https://data-architect-test-source.s3-sa-east-1.amazonaws.com/restaurant.csv.gz |
+| `ab_test_ref.tar.gz` | https://data-architect-test-source.s3-sa-east-1.amazonaws.com/ab_test_ref.tar.gz |
 
-- `reports/ifood_data_analytics_report.pdf`
+Recomenda-se salvar os arquivos em um diretório `data/` ou carregar diretamente no BigQuery.
 
-Este relatório é destinado a líderes de negócio e apresenta os insights de forma clara e concisa, sem a necessidade de conhecimento técnico aprofundado.
+## ▶️ Ordem de Execução
+
+1. `etl_process.ipynb`  
+   - Carrega os dados do iFood, trata inconsistências e envia as tabelas limpas para o BigQuery.
+
+2. `exploratory_data_analysis.ipynb`  
+   - Realiza análises descritivas, estatísticas e segmentação de clientes via RFM.
+
+3. `ifood_abtest_segmentation_results.ipynb`  
+   - Avalia os resultados do Teste A/B (grupo controle x grupo com cupom), calcula métricas como ROI, lift, ticket médio e retention por segmento.
+
+## 📊 Relatório Executivo
+
+O relatório completo com análises, gráficos e recomendações está disponível em:
+
+📄 `reports/relatorio_executivo.pdf`
+
+Ele foi escrito com foco em stakeholders não técnicos, explicando de forma clara:
+
+- Resultados estatísticos
+- Análise financeira da campanha
+- Segmentações estratégicas
+- Propostas de novas campanhas mais eficazes
+
+## 🧠 Principais Conclusões
+
+- A campanha analisada gerou **incremento de pedidos e receita**, mas **não foi financeiramente viável** nas premissas adotadas (ROI negativo).
+- **Segmentos como “New Customers” e “Potential Loyalists”** apresentaram maior potencial de retorno com cupons direcionados.
+- Estratégias futuras devem priorizar **personalização e testes A/B iterativos por segmento**.
+
+## 📌 Observações Finais
+
+Este projeto utiliza **Google BigQuery** como motor principal de dados. Para executar os notebooks corretamente:
+
+- Altere a variável `project_id` no início dos notebooks para o ID do seu projeto.
+- Garanta que você tenha permissões suficientes para criar e consultar tabelas no BigQuery.
+- Utilize o ambiente gratuito do **Google Colab** para execução sem dependências locais.
+
+## 🙋‍♂️ Autor
+
+Guilherme Fernandes  
+[LinkedIn](https://www.linkedin.com/in/gnfernandes/)

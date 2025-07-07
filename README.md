@@ -48,9 +48,9 @@ pip install pandas numpy matplotlib seaborn scikit-learn
 
 Os notebooks devem ser executados na seguinte ordem para garantir a correta sequência de processamento e análise:
 
-1. `notebooks/03_etl_process.ipynb`: Realiza o processo de ETL (Extração, Transformação e Carga) dos dados.
-2. `notebooks/01_exploratory_data_analysis.ipynb`: Contém a análise exploratória dos dados e a definição de indicadores.
-3. `notebooks/02_ifood_abtest_segmentation_results.ipynb`: Aborda a análise de segmentação e os resultados do teste A/B com base nos segmentos definidos.
+1. `notebooks/etl_process.ipynb`: Realiza o processo de ETL (Extração, Transformação e Carga) dos dados.
+2. `notebooks/exploratory_data_analysis.ipynb`: Contém a análise exploratória dos dados e a definição de indicadores.
+3. `notebooks/ifood_abtest_segmentation_results.ipynb`: Aborda a análise de segmentação e os resultados do teste A/B com base nos segmentos definidos.
 
 Para abrir e executar os notebooks:
 
